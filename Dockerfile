@@ -17,6 +17,10 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# NEXT_PUBLIC_* is inlined at build time — pass via --build-arg
+ARG NEXT_PUBLIC_TASHRIF_CLIENT_ID
+ENV NEXT_PUBLIC_TASHRIF_CLIENT_ID=$NEXT_PUBLIC_TASHRIF_CLIENT_ID
+
 RUN bun run build
 
 FROM oven/bun:1.3 AS runner
