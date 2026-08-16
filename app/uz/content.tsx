@@ -28,7 +28,7 @@ Markdown matningizni tahrir oynasiga yozishni boshlang. Natija real vaqt rejimid
 `;
 
 const EditorContent: React.FC = () => {
-    console.log(process.env.NEXT_PUBLIC_TASHRIF_CLIENT_ID);
+    console.log("tes",process.env.NEXT_PUBLIC_TASHRIF_CLIENT_ID);
     
     const [markdown, setMarkdown] = useState(INITIAL_MARKDOWN);
     const [splitRatio, setSplitRatio] = useState(50);
