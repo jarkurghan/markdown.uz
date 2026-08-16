@@ -17,9 +17,11 @@ COPY . .
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# NEXT_PUBLIC_* is inlined at build time — pass via --build-arg
+# Optional: also bake NEXT_PUBLIC_* if your platform passes build-args
 ARG NEXT_PUBLIC_TASHRIF_CLIENT_ID
 ENV NEXT_PUBLIC_TASHRIF_CLIENT_ID=$NEXT_PUBLIC_TASHRIF_CLIENT_ID
+ARG TASHRIF_CLIENT_ID
+ENV TASHRIF_CLIENT_ID=$TASHRIF_CLIENT_ID
 
 RUN bun run build
 
@@ -43,4 +45,5 @@ USER bun
 
 EXPOSE 3000
 
+# Set TASHRIF_CLIENT_ID at runtime (Coolify/Docker env) — layout reads it on the server
 CMD ["bun", "server.js"]
