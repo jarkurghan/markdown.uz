@@ -3,11 +3,9 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { Tashrif } from "tashrif/react";
 import "./globals.css";
 
-// export const dynamic = "force-dynamic";
-
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     await connection();
-    const tashrifClientId = process.env.TASHRIF_CLIENT_ID || process.env.NEXT_PUBLIC_TASHRIF_CLIENT_ID;
+    const tashrifClientId = process.env.TASHRIF_CLIENT_ID;
 
     return (
         <html lang="en">
