@@ -7,7 +7,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body className="bg-gray-900 text-white">
                 <ThemeProvider>
-                    <Tashrif />
+                    <Tashrif clientId={process.env.NEXT_PUBLIC_TASHRIF_CLIENT_ID} />
                     {children}
                 </ThemeProvider>
             </body>
